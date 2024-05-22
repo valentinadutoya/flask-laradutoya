@@ -15,3 +15,21 @@ def Actor():
     pagina = render_template('Actor.html', actores=lista_Actor)
 
     return pagina
+
+@bp.route('/<int:id>/detalle')
+def detalle(id):
+            con=db.get_db()
+            consulta = """
+            SELECT a.first_name,a.last_name, f.title, a.actor_id FROM actor a 
+            JOIN film_actor fa ON a.actor_id = fa.actor_id
+            JOIN film f ON fa.film_id = f.film_id
+            WHERE a.actor_id = ?
+            GROUP BY f.film_id"""
+                
+            resultado= con.execute(consulta,(id,))   
+            actor = {"nombre": resultado[actor],"id" : resultado["a.actor_id"]}
+            detalleActor = resultado["actor"]
+            actor = resultado.fetchone()    
+            pagina = render_template('detalleActor.html', act=actor)
+
+            return pagina      

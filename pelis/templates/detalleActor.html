@@ -6,11 +6,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="/static/main.css">
 </head><body>
-    <h1>lenguajes</h1>
+    <h1>Actores</h1>
     <hr>
     <ul>
-        {% for lenguaje in lenguajes %}
-           <li>{{lenguaje['name']}} </li>
+        {% for actor in actores %}
+           <li><a href="{{ url_for('detalleActor.detalle', id=detalleActor['id']) }}"></a>{{actor['last_name']}} {{actor['first_name']}}</li>
            {% endfor %}
         
     </ul>
