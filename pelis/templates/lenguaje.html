@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/main.css">
-</head><body>
-    <h1>lenguajes</h1>
-    <hr>
-    <ul>
-        {% for lenguaje in lenguajes %}
+{% extends 'base.html'%}
+{% block titulo %}Lenguaje{% endblock %}
+{% block encabezado %}Lenguaje:{% endblock %}
+{% block contenido %}
+ <ul>
+    {% for lenguaje in lenguajes %}
            <li>{{lenguaje['name']}} </li>
            {% endfor %}
         
-    </ul>
-
-
-</body></html>
+</ul>
+{% endblock %}

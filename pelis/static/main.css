@@ -1,5 +1,5 @@
-html { font-family: cursive; background: #b98bdf; padding: 1rem; }
-body { max-width: 960px; margin: 0 auto; background: rgb(195, 137, 228); }
+html { font-family:Arial, Helvetica, sans-serif; background: #be97df; padding: 1rem; }
+body { max-width: 960px; margin: 0 auto; background: rgb(202, 156, 224); }
 h1 { font-family: serif; color: hwb(0 2% 98%); margin: 1rem 0; }
 a { color: hsl(0, 64%, 65%); }
 hr { border: none; border-top: 3px solid rgb(0, 0, 0); }
