@@ -5,8 +5,7 @@
 {% block contenido %}
  <ul>
     {% for actor in actores %}
-           <li>{{actor['last_name']}} {{actor['first_name']}}</li>
-           
+           <li><a href="{{ url_for('actor.detalle', id=actor['actor_id']) }}">{{actor['last_name']}} {{actor['first_name']}}</a></li>
     {% endfor %}
         
 </ul>

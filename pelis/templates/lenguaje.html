@@ -4,7 +4,7 @@
 {% block contenido %}
  <ul>
     {% for lenguaje in lenguajes %}
-           <li>{{lenguaje['name']}} </li>
+           <li><a href="{{ url_for('lenguaje.detalle', id=lenguaje['languague_id']) }}"></a>{{lenguaje['name']}} </li>
            {% endfor %}
         
 </ul>
