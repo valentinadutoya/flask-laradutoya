@@ -4,13 +4,13 @@
     <title>{% block titulo %}Actores{% endblock %}</title>
     <link rel="stylesheet" href="/static/main.css">
 </head><body>
-    <h1>{% block encabezado %}{{lenguajes['name']}} {% endblock %}</h1>
+    <h1>{% block encabezado %}{{leng['name']}} {% endblock %}</h1>
     {% block contenido %} 
-    <h2>Lenguaje:</h2>
+    <h2>Peliculas:</h2>
     <hr>
     <ul>
-        {% for lenguaje in lenguajes %}
-           <li>{{lenguaje['Peliculas']}}</li>
+        {% for p in pelis %}
+           <li>{{p['pelicula']}}</li>
            {% endfor %}
 
     {% endblock %}

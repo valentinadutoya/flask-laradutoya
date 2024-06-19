@@ -26,7 +26,8 @@ def detalle(id):
 
             consulta2 = """
             SELECT f.title, f.film_id 
-            FROM film_actor fa JOIN film f ON fa.film_id = f.film_id
+            FROM film_actor fa 
+            JOIN film f ON fa.film_id = f.film_id
             WHERE fa.actor_id = ?
             """
 

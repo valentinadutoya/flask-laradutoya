@@ -6,7 +6,7 @@ bp = Blueprint('lenguaje', __name__,url_prefix='/lenguaje')
 @bp.route('/')
 def lenguaje():
     consulta = """
-        SELECT name,languague_id FROM language 
+        SELECT name,language_id FROM language 
         ORDER BY name; 
     """
     con = db.get_db()
@@ -21,22 +21,22 @@ def detalle(id):
             con=db.get_db()
             consulta = """
             SELECT name FROM language
-            WHERE language_id = 2
+            WHERE language_id = ?
             """
 
             consulta2 = """
-           SELECT f.title as peliculas, f.film_id FROM film f 
+           SELECT f.title as pelicula, f.film_id FROM film f 
            JOIN language l on f.language_id = l.language_id
            WHERE l.language_id = ?
             """
 
             resultado= con.execute(consulta,(id,))   
-            lenguajes = resultado.fetchone()
+            lenguaje = resultado.fetchone()
             
             resultado= con.execute(consulta2,(id,))   
             lista_pelis = resultado.fetchall()
 
             
-            pagina = render_template('detalleLenguaje.html', leng=lenguajes, peli=lista_pelis)
+            pagina = render_template('detalleLenguaje.html', leng=lenguaje, pelis=lista_pelis)
 
             return pagina      
