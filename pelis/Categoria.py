@@ -1,10 +1,10 @@
 from . import db
 from flask import Blueprint, render_template
 
-bp = Blueprint('peliculas', __name__,url_prefix='/peliculas')
+bp = Blueprint('catagoria', __name__,url_prefix='/categoria')
 
 @bp.route('/')
-def lenguaje():
+def categoria():
     consulta = """
              SELECT name FROM category 
             ORDER by name ASC
@@ -12,7 +12,7 @@ def lenguaje():
     con = db.get_db()
     res = con.execute(consulta)
     lista_peliss = res.fetchall()
-    pagina = render_template('Peliculas.html', peliculas= lista_peliss) 
+    pagina = render_template('Categoria.html', peliculas= lista_peliss) 
 
     return pagina
 
@@ -21,7 +21,7 @@ def detalless(id):
             con=db.get_db()
             consulta = """
                 SELECT name FROM category
-                WHERE category_id = 4
+                WHERE category_id = ?
             """
 
             consulta2 = """

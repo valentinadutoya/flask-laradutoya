@@ -20,7 +20,7 @@ def lenguaje():
 def detalle(id):
             con=db.get_db()
             consulta = """
-            SELECT name FROM language
+            SELECT name, language_id as idLeng FROM language
             WHERE language_id = ?
             """
 

@@ -1,0 +1,12 @@
+
+{% extends 'base.html'%}
+{% block titulo %}Lista de Categorias{% endblock %}
+{% block encabezado %}Categorias:{% endblock %}
+{% block contenido %}
+ <ul>
+    {% for actor in actores %}
+           <li><a href="{{ url_for('categoria.detalle', id=categoria['category_id']) }}">{{categoria['name']}} </a></li>
+    {% endfor %}
+        
+</ul>
+{% endblock %}

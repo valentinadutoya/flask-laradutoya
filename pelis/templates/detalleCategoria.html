@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block titulo %}Genero{% endblock %}
+{% block encabezado %}Genero:{{ cat['name'] }} {% endblock %}
+{% block contenido %} 
+    <h2>Peliculas:</h2>
+    <hr>
+    <ul>
+        {% for p in categoria %}
+           <li><a href="{{ url_for('actor.detalle', id=actor['actor_id']) }}">{{ p['categoria'] }}</a></li>
+           {% endfor %}
+
+    {% endblock %}
+        
+    </ul>
+
+
+</body></html>

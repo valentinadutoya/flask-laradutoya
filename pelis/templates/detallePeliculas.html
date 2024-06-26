@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block titulo %}Actor{% endblock %}
+{% block encabezado %} {{ pelicula['title'] }} {% endblock %}
+{% block contenido %} 
+    <p>Descripcion:  {{ pelicula['description'] }}</p>
+    <p>Duracion: {{pelicula['length']}}/p>
+    <p>Clasificacion:{{ pelicula['rating'] }}</p>
+    <p>Idioma:<a href="{{ url_for('lenguaje.detalle', id=leng['language_id']) }}"></a></p>
+    <h2>Pelicula::</h2>
+    <hr>
+    <ul>
+        {% for pelicula in peli %}
+           <li><a href="{{ url_for('actor.detalle', id=pelicula['actor_id']) }}">{{ pelicula['title'] }}</a></li>
+           {% endfor %}
+
+    {% endblock %}
+        
+    </ul>
+
+
+</body></html>

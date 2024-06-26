@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>{% block titulo %}Actores{% endblock %}</title>
-    <link rel="stylesheet" href="/static/main.css">
-</head><body>
-    <h1>{% block encabezado %}{{act['first_name']}} {{ act['last_name']}}{% endblock %}</h1>
-    {% block contenido %} 
-    <h2>Peliculas:</h2>
-    <hr>
+{% extends 'base.html'%}
+{% block titulo %}{{act['first_name']}} {{ act['last_name']}}{% endblock %}
+{% block encabezado %}{{ act['first_name'] }} {{ act['last_name']}}:{% endblock %}
+{% block contenido %}
+
     <ul>
         {% for pelicula in pelis %}
-           <li>{{pelicula['title']}}</li>
+           <li><a href="{{ url_for('peliculas.detalles', id=pelicula['actor_id']) }}">{{pelicula['title']}}</a></li>
            {% endfor %}
 
     {% endblock %}
