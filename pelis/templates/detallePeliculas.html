@@ -3,14 +3,14 @@
 {% block encabezado %} {{ pelicula['title'] }} {% endblock %}
 {% block contenido %} 
     <p>Descripcion:  {{ pelicula['description'] }}</p>
-    <p>Duracion: {{pelicula['length']}}/p>
+    <p>Duracion: {{pelicula['length']}} min</p>
     <p>Clasificacion:{{ pelicula['rating'] }}</p>
-    <p>Idioma:<a href="{{ url_for('lenguaje.detalle', id=leng['language_id']) }}"></a></p>
-    <h2>Pelicula::</h2>
+    <p>Idioma:<a href="{{ url_for('lenguaje.detalle', id=pelicula['language_id']) }}"> {{pelicula['language']}}</a></p>
     <hr>
+    <h2>Actores:</h2>
     <ul>
-        {% for pelicula in peli %}
-           <li><a href="{{ url_for('actor.detalle', id=pelicula['actor_id']) }}">{{ pelicula['title'] }}</a></li>
+        {% for actor in actores %}
+           <li><a href="{{ url_for('actor.detalle', id=actor['actor_id']) }}">{{ actor['first_name'] }} {{ actor['last_name']}}</a></li>
            {% endfor %}
 
     {% endblock %}

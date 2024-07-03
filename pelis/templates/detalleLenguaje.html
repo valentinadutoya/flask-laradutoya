@@ -10,7 +10,7 @@
     <hr>
     <ul>
         {% for p in pelis %}
-           <li><a href="">{{p['pelicula']}}</a></li>
+           <li><a href="{{ url_for('peliculas.detalles', id=p['film_id']) }}">{{p['pelicula']}}</a></li>
            {% endfor %}
 
     {% endblock %}

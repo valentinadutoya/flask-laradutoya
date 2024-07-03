@@ -21,8 +21,8 @@ def detalles(id):
             con=db.get_db()
             consulta = """
             SELECT f.title,f.description,f.length,f.rating,f.release_year, l.name as language , l.language_id 
-            FROM  film f
-            JOIN language l on of f.language_id = l.language_id
+            FROM film f
+            JOIN language l on f.language_id = l.language_id
              WHERE f.film_id = ?;
             """
 
@@ -36,9 +36,9 @@ def detalles(id):
             ppelis = resultado.fetchone()
             
             resultado= con.execute(consulta2,(id,))   
-            lista_pelicula = resultado.fetchall()
+            lista_actores = resultado.fetchall()
 
             
-            pagina = render_template('detallePeliculas.html', peli = ppelis , pelicula =  lista_pelicula)
+            pagina = render_template('detallePeliculas.html', pelicula = ppelis , actores =  lista_actores)
 
             return pagina      
